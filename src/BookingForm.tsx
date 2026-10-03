@@ -6,6 +6,12 @@ import { PrenotazioneSchema } from './generated/api-schema';
 type PrenotazioneInput = z.input<typeof PrenotazioneSchema>;
 type FieldErrorsRecord = Record<string, { message?: string } | undefined>;
 
+const emptyToUndefined = (v: unknown) => (v === '' ? undefined : v);
+const postiValue = (v: unknown) => (v === '' ? undefined : Number(v));
+
+const cast = { setValueAs: emptyToUndefined };
+const castPosti = { setValueAs: postiValue };
+
 const salaLabels: Record<string, string> = {
   AULA_A: 'Aula A',
   AULA_B: 'Aula B',
@@ -42,7 +48,7 @@ export function BookingForm() {
           Email *
         </label>
         <input
-          {...register('email')}
+          {...register('email', cast)}
           id="email"
           type="email"
           className={`form-control ${err('email') ? 'is-invalid' : ''}`}
@@ -55,7 +61,7 @@ export function BookingForm() {
           Nominativo *
         </label>
         <input
-          {...register('nominativo')}
+          {...register('nominativo', cast)}
           id="nominativo"
           type="text"
           className={`form-control ${err('nominativo') ? 'is-invalid' : ''}`}
@@ -68,7 +74,7 @@ export function BookingForm() {
           Sala *
         </label>
         <select
-          {...register('sala')}
+          {...register('sala', cast)}
           id="sala"
           className={`form-select ${err('sala') ? 'is-invalid' : ''}`}
         >
@@ -88,7 +94,7 @@ export function BookingForm() {
             Data inizio *
           </label>
           <input
-            {...register('dataInizio')}
+            {...register('dataInizio', cast)}
             id="dataInizio"
             type="datetime-local"
             className={`form-control ${err('dataInizio') ? 'is-invalid' : ''}`}
@@ -100,7 +106,7 @@ export function BookingForm() {
             Data fine *
           </label>
           <input
-            {...register('dataFine')}
+            {...register('dataFine', cast)}
             id="dataFine"
             type="datetime-local"
             className={`form-control ${err('dataFine') ? 'is-invalid' : ''}`}
@@ -114,7 +120,7 @@ export function BookingForm() {
           Posti * (1–50)
         </label>
         <input
-          {...register('posti', { valueAsNumber: true })}
+          {...register('posti', castPosti)}
           id="posti"
           type="number"
           min={1}
@@ -129,7 +135,7 @@ export function BookingForm() {
           Note
         </label>
         <textarea
-          {...register('note')}
+          {...register('note', cast)}
           id="note"
           className={`form-control ${err('note') ? 'is-invalid' : ''}`}
           rows={2}
