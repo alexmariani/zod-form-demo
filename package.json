@@ -1,0 +1,30 @@
+{
+  "name": "zod-form-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Demo: React Hook Form + validazione Zod generata da swagger-to-zod (spec OpenAPI), con tema Bootstrap Italia.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "gen:schema": "tsx /opt/data/swagger-to-zod/src/cli.ts ./specs/booking.yaml --out src/generated/api-schema.ts --locale it",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "bootstrap": "^5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.89.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.0"
+  }
+}

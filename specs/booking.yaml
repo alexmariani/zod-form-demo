@@ -1,0 +1,54 @@
+openapi: 3.0.3
+info:
+  title: Booking API
+  version: 2.1.0
+paths:
+  /bookings:
+    post:
+      summary: Crea una prenotazione
+      responses:
+        '201':
+          description: Creata
+components:
+  schemas:
+    Sala:
+      type: string
+      enum: [AULA_A, AULA_B, LAB]
+    Prenotazione:
+      type: object
+      properties:
+        nominativo:
+          type: string
+          minLength: 2
+          maxLength: 80
+        email:
+          type: string
+          format: email
+        sala:
+          $ref: '#/components/schemas/Sala'
+        dataInizio:
+          type: string
+          format: date-time
+        dataFine:
+          type: string
+          format: date-time
+        posti:
+          type: integer
+          minimum: 1
+          maximum: 50
+        note:
+          type: string
+          maxLength: 500
+          nullable: true
+        flagConferma:
+          type: boolean
+      required: [nominativo, email, sala, dataInizio, dataFine, posti, flagConferma]
+      x-validate:
+        - field: dataFine
+          op: gt
+          ref: dataInizio
+          message: La data di fine deve essere successiva alla data di inizio
+        - field: email
+          op: neq
+          ref: nominativo
+          message: L'email non può coincidere con il nominativo
