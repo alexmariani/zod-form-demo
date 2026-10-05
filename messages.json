@@ -1,0 +1,9 @@
+{
+  "required": "Campo obbligatorio: compilalo sì o no?",
+  "email": "Scrivi una email valida, grazie",
+  "minLength": "Almeno {n} caratteri richiesti",
+  "maxLength": "Non puoi superare {n} caratteri",
+  "min": "Il valore minimo è {n}",
+  "max": "Il valore massimo è {n}",
+  "custom": "Attenzione: {f} deve essere {op} {r}"
+}

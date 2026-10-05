@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "gen:schema": "tsx /opt/data/swagger-to-zod/src/cli.ts ./specs/booking.yaml --out src/generated/api-schema.ts --locale it",
+    "gen:schema": "tsx /opt/data/swagger-to-zod/src/cli.ts ./specs/booking.yaml --out src/generated/api-schema.ts --locale it --messages ./messages.json",
     "check": "tsc --noEmit"
   },
   "dependencies": {
