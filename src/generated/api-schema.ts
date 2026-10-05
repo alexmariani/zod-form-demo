@@ -1,7 +1,7 @@
 /**
  * GENERATO AUTOMATICAMENTE da swagger-to-zod — NON MODIFICARE A MANO.
  * * Title: Booking API v2.1.0 (locale: it) · messaggi override: ./messages.json
- * Generato il 2026-10-05 12:54:05 UTC
+ * Generato il 2026-10-05 13:25:10 UTC
  * Stack: Zod (React Hook Form) + TypeScript
  */
 import { z } from 'zod';

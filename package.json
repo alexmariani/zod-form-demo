@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
-    "gen:schema": "node node_modules/swagger-to-zod-gen/dist/cli.js ./specs/booking.yaml --out src/generated/api-schema.ts --locale it --messages ./messages.json",
+    "gen:schema": "swagger-to-zod-gen ./specs/booking.yaml --out src/generated/api-schema.ts --locale it --messages ./messages.json",
     "check": "tsc --noEmit"
   },
   "dependencies": {
@@ -23,7 +23,7 @@
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
-    "swagger-to-zod-gen": "^0.1.2",
+    "swagger-to-zod-gen": "^0.1.4",
     "tsx": "^4.19.2",
     "typescript": "^5.6.2",
     "vite": "^5.4.0"
